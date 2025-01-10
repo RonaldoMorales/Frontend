@@ -20,8 +20,11 @@ export const jwtInterceptor: HttpInterceptorFn = (request: HttpRequest<unknown>,
     catchError(error => {
       if (error.status === 401) {
         
-        localStorage.removeItem('token');
-        alert('Sesión expirada'); 
+        //Hice esta funcion para que se limpie el token si es que se ingresa un usuario invalido
+        //De esta forma si el usuario no habia cerrado sesion, se limpiara el token cuando
+        //se intente ingresar con un usuario invalido
+        
+        localStorage.removeItem('token'); 
         router.navigate(['/login'], { queryParams: { returnUrl: request.url } });
        
       }
