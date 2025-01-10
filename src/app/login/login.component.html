@@ -1,25 +1,41 @@
-<!-- src/app/login/login.component.html -->
-<form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
-  <div>
-    <label for="email">Email:</label>
-    <input id="email" type="email" formControlName="email">
-    <div *ngIf="loginForm.get('email')?.hasError('required') && loginForm.get('email')?.touched">
-      Email es requerido
+<div class="flex justify-center items-center h-screen">
+  <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="max-w-sm w-full">
+    <div class="mb-6">
+      <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white text-center">Email:</label>
+      <input id="email" type="email" formControlName="email" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+      <p *ngIf="loginForm.get('email')?.hasError('required') && loginForm.get('email')?.touched" class="mt-2 text-sm text-red-600 dark:text-red-500 text-center">
+        Email es requerido
+      </p>
+      <p *ngIf="loginForm.get('email')?.hasError('email') && loginForm.get('email')?.touched" class="mt-2 text-sm text-red-600 dark:text-red-500 text-center">
+        Email no es válido
+      </p>
     </div>
-    <div *ngIf="loginForm.get('email')?.hasError('email') && loginForm.get('email')?.touched">
-      Email no es válido
+    <div class="mb-6">
+      <label for="password" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white text-center">Password:</label>
+      <input id="password" type="password" formControlName="password" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+      <p *ngIf="loginForm.get('password')?.hasError('required') && loginForm.get('password')?.touched" class="mt-2 text-sm text-red-600 dark:text-red-500 text-center">
+        Password es requerido
+      </p>
+      <p *ngIf="loginForm.get('password')?.hasError('minlength') && loginForm.get('password')?.touched" class="mt-2 text-sm text-red-600 dark:text-red-500 text-center">
+        La contraseña debe tener al menos 6 caracteres
+      </p>
     </div>
-  </div>
-  <div>
-    <label for="password">Password:</label>
-    <input id="password" type="password" formControlName="password">
-    <div *ngIf="loginForm.get('password')?.hasError('required') && loginForm.get('password')?.touched">
-      Password es requerido
+    
+    <div class="flex justify-center mb-4">
+      <button type="submit" [disabled]="!loginForm.valid" class="text-white font-medium rounded-lg text-sm px-5 py-2.5 w-full sm:w-auto" [ngClass]="{'bg-blue-700 hover:bg-blue-800 focus:ring-blue-300': loginForm.valid, 'bg-blue-700/50': !loginForm.valid}">
+        Login
+      </button>
     </div>
-    <div *ngIf="loginForm.get('password')?.hasError('minlength') && loginForm.get('password')?.touched">
-      La contraseña debe tener al menos 6 caracteres
+
+    <div *ngIf="errorMessage" class="mt-4 p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400 text-center" role="alert">
+      {{ errorMessage }}
     </div>
-  </div>
-  <div *ngIf="errorMessage" class="alert alert-danger">{{ errorMessage }}</div>
-  <button type="submit" [disabled]="!loginForm.valid">Login</button>
-</form>
+
+    <div class="mt-4 text-center">
+      <p class="text-sm text-gray-600 dark:text-gray-400">
+        ¿No tienes una cuenta? 
+        <a (click)="navigateToRegister()" class="text-blue-600 hover:underline dark:text-blue-500 cursor-pointer">Regístrate aquí</a>
+      </p>
+    </div>
+  </form>
+</div>

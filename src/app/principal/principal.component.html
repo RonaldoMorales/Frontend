@@ -1,7 +1,6 @@
-<!-- src/app/principal/principal.component.html -->
 <div class="container">
-    <div>
-      <button class="green-button" (click)="navigateToCreatePost()">Hacer Post</button>
-      <button class="blue-button">Obtener Posts</button>
+    <div class="flex justify-center space-x-4">
+      <button class="btn bg-green-500 hover:bg-green-600 text-white font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-green-600 dark:hover:bg-green-700" (click)="navigateToCreatePost()">Hacer Post</button>
+      <button class="btn bg-blue-500 hover:bg-blue-600 text-white font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700" routerLink="/posts">Obtener Posts</button>
     </div>
   </div>

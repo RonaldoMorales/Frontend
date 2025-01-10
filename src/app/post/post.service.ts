@@ -2,7 +2,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { CreatePostDto } from './CreatePostDto';
+import { Post } from './Post';
 
 @Injectable({
   providedIn: 'root'
@@ -14,6 +14,10 @@ export class PostService {
 
   createPost(formData: FormData): Observable<any> {
     return this.http.post(`${this.baseUrl}/create`, formData);
+  }
+
+  getPosts(): Observable<Post[]> {
+    return this.http.get<Post[]>(`${this.baseUrl}/my-posts`);
   }
 
 }

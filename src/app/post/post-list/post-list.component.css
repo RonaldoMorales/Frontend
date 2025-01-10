@@ -1,0 +1,21 @@
+.post-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+  
+  .card {
+    width: 300px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  
+  .card-img-top {
+    width: 100%;
+    object-fit: cover;
+  }
+  
+  .card-body {
+    padding: 1rem;
+  }

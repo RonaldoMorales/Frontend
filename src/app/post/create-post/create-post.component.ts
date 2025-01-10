@@ -69,7 +69,7 @@ export class CreatePostComponent implements OnInit {
           this.imagePreview = null;
           setTimeout(() => {
             this.successMessage = '';
-            this.router.navigate(['/dashboard']);
+            this.router.navigate(['/post-list']);
           }, 3000);
         },
         error: (error) => {
@@ -85,7 +85,6 @@ export class CreatePostComponent implements OnInit {
 
   private handleBackendError(message: string) {
     this.errorMessage = message;
-    // Limpiamos la imagen seleccionada para errores específicos de imagen
     if (message.includes('formato') || message.includes('tamaño') || message.includes('imagen')) {
       this.clearImage();
     }

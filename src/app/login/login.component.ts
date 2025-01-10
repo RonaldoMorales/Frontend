@@ -3,11 +3,11 @@ import { AuthService } from '../jwt/auth.service';
 import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
 import { NgIf } from '@angular/common';
-
+import { CommonModule } from '@angular/common';
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [NgIf, ReactiveFormsModule],
+  imports: [NgIf, ReactiveFormsModule, CommonModule],
   templateUrl: './login.component.html',
   styleUrl: './login.component.css'
 })
@@ -44,5 +44,9 @@ export class LoginComponent implements OnInit {
           }
         });
     }
+  }
+
+  navigateToRegister() {
+    this.router.navigate(['/register']);
   }
 }
