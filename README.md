@@ -30,6 +30,6 @@ Esto instalará todas las dependencias que están definidas en el archivo packag
 
 Para ejecutar el proyecto, ejecute el siguiente comando: 
 
-Ng serve
+ng serve
 
 La aplicación estará disponible en http://localhost:4200
