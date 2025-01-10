@@ -1,6 +1,5 @@
 # Catedra3
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.2.12.
 
 Este es un proyecto desarrollado con Angular [Angular CLI](https://github.com/angular/angular-cli) version 18.2.12, Tailwind CSS y Flowbite. En este repositorio se incluye el código fuente y las instrucciones para ejecutar y desarrollar la aplicación localmente.
 
