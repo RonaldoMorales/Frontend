@@ -2,26 +2,35 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.2.12.
 
-## Development server
+Este es un proyecto desarrollado con Angular [Angular CLI](https://github.com/angular/angular-cli) version 18.2.12, Tailwind CSS y Flowbite. En este repositorio se incluye el código fuente y las instrucciones para ejecutar y desarrollar la aplicación localmente.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## Requisitos Previos
 
-## Code scaffolding
+Antes de clonar y ejecutar el proyecto, asegúrate de tener instalados los siguientes programas:
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+- [Node.js](https://nodejs.org/) (la version mas actual)
 
-## Build
+## Clonar el Proyecto
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+1. Abre tu terminal o línea de comandos.
+2. Clona el repositorio utilizando Git:
 
-## Running unit tests
+git clone https://github.com/RonaldoMorales/Frontend.git
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+3. Accede al directorio principal:
 
-## Running end-to-end tests
+cd Frontend
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+# Instalar dependencias 
 
-## Further help
+Una vez clonado el proyecto, debe ejecutar el comando 'npm install' en su terminal (Sin las comillas)
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+Esto instalará todas las dependencias que están definidas en el archivo package.json
+
+# Ejecutar el proyecto: 
+
+Para ejecutar el proyecto, ejecute el siguiente comando: 
+
+Ng serve
+
+La aplicación estará disponible en http://localhost:4200
