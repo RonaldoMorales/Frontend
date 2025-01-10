@@ -30,7 +30,6 @@ export class RegisterComponent implements OnInit {
       password: ['', [
         Validators.required,
         Validators.minLength(6),
-        Validators.pattern('^(?=.*[0-9]).{6,}$')
       ]]
     });
   }
