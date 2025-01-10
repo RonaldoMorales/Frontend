@@ -4,7 +4,6 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { provideHttpClient, withInterceptors } from '@angular/common/http';
 import { CommonModule } from '@angular/common'; 
 import { jwtInterceptor } from './jwt/jwt-interceptor.service';
-
 import { routes } from './app.routes';
 
 export const appConfig: ApplicationConfig = {

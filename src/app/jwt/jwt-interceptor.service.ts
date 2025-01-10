@@ -1,17 +1,31 @@
-import { Injectable } from '@angular/core';
-import { HttpRequest, HttpHandlerFn, HttpEvent, HttpInterceptorFn } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { HttpInterceptorFn, HttpRequest, HttpHandlerFn, HttpEvent } from '@angular/common/http';
+import { Observable, throwError } from 'rxjs';
+import { catchError } from 'rxjs/operators';
+import { inject } from '@angular/core';
+import { Router } from '@angular/router';
 
-export const jwtInterceptor: HttpInterceptorFn = (req: HttpRequest<unknown>, next: HttpHandlerFn): Observable<HttpEvent<unknown>> => {
-  const token = localStorage.getItem('token'); 
+export const jwtInterceptor: HttpInterceptorFn = (request: HttpRequest<unknown>, next: HttpHandlerFn): Observable<HttpEvent<unknown>> => {
+  const router = inject(Router);
+  const token = localStorage.getItem('token');
 
   if (token) {
-    req = req.clone({
+    request = request.clone({
       setHeaders: {
         Authorization: `Bearer ${token}`
       }
     });
   }
 
-  return next(req);
+  return next(request).pipe(
+    catchError(error => {
+      if (error.status === 401) {
+        
+        localStorage.removeItem('token');
+        alert('Sesión expirada'); 
+        router.navigate(['/login'], { queryParams: { returnUrl: request.url } });
+       
+      }
+      return throwError(error);
+    })
+  );
 };
