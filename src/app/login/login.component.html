@@ -1,27 +1,25 @@
 <!-- src/app/login/login.component.html -->
 <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
-    <div>
-      <label for="email">Email:</label>
-      <input id="email" type="email" formControlName="email">
-      <!-- Mostrar errores de validación para el email -->
-      <div *ngIf="loginForm.get('email')?.hasError('required') && loginForm.get('email')?.touched">
-        Email es requerido
-      </div>
-      <div *ngIf="loginForm.get('email')?.hasError('email') && loginForm.get('email')?.touched">
-        Email no es válido
-      </div>
+  <div>
+    <label for="email">Email:</label>
+    <input id="email" type="email" formControlName="email">
+    <div *ngIf="loginForm.get('email')?.hasError('required') && loginForm.get('email')?.touched">
+      Email es requerido
     </div>
-    <div>
-      <label for="password">Password:</label>
-      <input id="password" type="password" formControlName="password">
-      <!-- Mostrar errores de validación para la contraseña -->
-      <div *ngIf="loginForm.get('password')?.hasError('required') && loginForm.get('password')?.touched">
-        Password es requerido
-      </div>
-      <div *ngIf="loginForm.get('password')?.hasError('minlength') && loginForm.get('password')?.touched">
-        La contraseña debe tener al menos 6 caracteres
-      </div>
+    <div *ngIf="loginForm.get('email')?.hasError('email') && loginForm.get('email')?.touched">
+      Email no es válido
     </div>
-    <div *ngIf="errorMessage" class="alert alert-danger">{{ errorMessage }}</div>
-    <button type="submit" [disabled]="!loginForm.valid">Login</button>
-  </form>
+  </div>
+  <div>
+    <label for="password">Password:</label>
+    <input id="password" type="password" formControlName="password">
+    <div *ngIf="loginForm.get('password')?.hasError('required') && loginForm.get('password')?.touched">
+      Password es requerido
+    </div>
+    <div *ngIf="loginForm.get('password')?.hasError('minlength') && loginForm.get('password')?.touched">
+      La contraseña debe tener al menos 6 caracteres
+    </div>
+  </div>
+  <div *ngIf="errorMessage" class="alert alert-danger">{{ errorMessage }}</div>
+  <button type="submit" [disabled]="!loginForm.valid">Login</button>
+</form>

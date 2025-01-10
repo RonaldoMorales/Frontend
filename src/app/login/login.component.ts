@@ -40,6 +40,7 @@ export class LoginComponent implements OnInit {
 
             this.errorMessage = error.error?.message || 'Error al iniciar sesión';
             alert('Creedenciales inválidas');
+            this.loginForm.patchValue({ password: '' });
           }
         });
     }

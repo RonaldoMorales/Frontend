@@ -1,0 +1,23 @@
+<!-- src/app/post/create-post/create-post.component.html -->
+<form [formGroup]="createPostForm" (ngSubmit)="onSubmit()">
+    <div>
+      <label for="titulo">Título:</label>
+      <input id="titulo" type="text" formControlName="titulo" placeholder="Mínimo 5 caracteres">
+      <div *ngIf="createPostForm.get('titulo')?.hasError('required') && createPostForm.get('titulo')?.touched">
+        El título es requerido.
+      </div>
+      <div *ngIf="createPostForm.get('titulo')?.hasError('minlength') && createPostForm.get('titulo')?.touched">
+        El título debe tener al menos 5 caracteres.
+      </div>
+    </div>
+    <div>
+      <label for="imagen">Imagen:</label>
+      <input id="imagen" type="file" (change)="onFileSelected($event)" accept="image/*">
+      <div *ngIf="imagePreview">
+        <img [src]="imagePreview" alt="Preview" style="max-width: 200px; max-height: 200px;">
+      </div>
+    </div>
+    <button type="submit" [disabled]="!createPostForm.valid">Crear Post</button>
+    <div *ngIf="successMessage" class="alert alert-success">{{ successMessage }}</div>
+    <div *ngIf="errorMessage" class="alert alert-danger">{{ errorMessage }}</div>
+  </form>
